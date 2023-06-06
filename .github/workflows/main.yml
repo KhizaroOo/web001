@@ -20,5 +20,4 @@ jobs:
           
       - name: Run application
         run: |
-          cd --project
           dotnet run
