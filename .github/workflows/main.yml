@@ -13,15 +13,7 @@ jobs:
       - uses: actions/checkout@v2
 
       # Install .NET Core SDK
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v2
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3.2.0
         with:
           dotnet-version: 7.0.x
-
-      # Deploy the site
-      - name: Deploy
-        uses: khizaroOo/actions-gh-pages@v3
-        with:
-          github_token: ${{ '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' }}
-          publish_dir: wwwroot
-          force_orphan: true
