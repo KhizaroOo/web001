@@ -19,10 +19,10 @@ jobs:
   
   # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish WEB001.csproj -c Release -o release --nologo
-      
+      run: dotnet run WEB001.dll
+  
     - name: Commit wwwroot to GitHub Pages
-      uses: khizarooo/web001@v1
+      uses: khizarooo/Deploy-To-GitHub-Pages@v1
       with:
         GITHUB_TOKEN: ${{ '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' }}
         BRANCH: main
