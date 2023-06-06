@@ -18,8 +18,5 @@ jobs:
         with:
           dotnet-version: 7.0.x
           
-      - name: Restore dependencies
-        run: dotnet restore
-        
       - name: Build application
         run: dotnet build --configuration Release
