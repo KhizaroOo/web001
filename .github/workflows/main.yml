@@ -22,7 +22,7 @@ jobs:
       run: dotnet publish WEB001.csproj -c Release -o release --nologo
       
     - name: Commit wwwroot to GitHub Pages
-      uses: khizarooo/deploy-to-gitHub-pages@3.7.1
+      uses: khizarooo/web001@3.7.1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
