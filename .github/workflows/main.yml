@@ -20,5 +20,5 @@ jobs:
           
       - name: Run application
         run: |
-          cd root
+          cd /
           dotnet run
