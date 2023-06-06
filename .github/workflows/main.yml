@@ -1,29 +1,27 @@
-name: Deploy-To-GitHub-Pages
-# Run workflow on every push to the master branch
+name: github pages
+
 on:
   push:
-    branches: [ main ]
-    
-jobs:
-  deploy-to-github-pages:
-    # use ubuntu-latest image to run steps on
-    runs-on: ubuntu-latest
-    steps: # uses GitHub's checkout action to checkout code form the master branch
-    - uses: actions/checkout@v2
+    branches:
+      - main
 
-    # sets up .NET Core SDK 3.1
-    - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1
-  
-  # publishes Blazor project to the release-folder
-    - name: Publish .NET Core Project
-      run: dotnet run WEB001.dll
-  
-    - name: Commit wwwroot to GitHub Pages
-      uses: khizarooo/Deploy-To-GitHub-Pages@v1
-      with:
-        GITHUB_TOKEN: ${{ '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' }}
-        BRANCH: main
-        FOLDER: root/wwwroot
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - uses: actions/checkout@v2
+
+      # Install .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 7.0.x
+
+      # Deploy the site
+      - name: Deploy
+        uses: khizaroOo/actions-gh-pages@v3
+        with:
+          github_token: ${{ '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' }}
+          publish_dir: wwwroot
+          force_orphan: true
