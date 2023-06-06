@@ -26,4 +26,4 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ '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' }}
         BRANCH: main
-        FOLDER: root
+        FOLDER: root/wwwroot
