@@ -20,5 +20,5 @@ jobs:
           
       - name: Run application
         run: |
-          cd WEB01.dll
+          cd ./WEB01.dll
           dotnet run
